@@ -1,29 +1,16 @@
-// =====================================
-// VIKAS MISHRA - QA PORTFOLIO
-// =====================================
+// MOBILE MENU
 
-// Get all navigation links
-const navLinks = document.querySelectorAll("nav a");
+const menuBtn = document.getElementById("menuBtn");
+const navbar = document.getElementById("navbar");
 
-// Highlight active section while scrolling
-window.addEventListener("scroll", () => {
-  let currentSection = "";
+menuBtn.addEventListener("click", () => {
+  navbar.classList.toggle("show");
+});
 
-  const sections = document.querySelectorAll("section");
+// Link click hone ke baad menu close
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-
-    if (window.scrollY >= sectionTop - 150) {
-      currentSection = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === "#" + currentSection) {
-      link.classList.add("active");
-    }
+document.querySelectorAll("#navbar a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("show");
   });
 });
